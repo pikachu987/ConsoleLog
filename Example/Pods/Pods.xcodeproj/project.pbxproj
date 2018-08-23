@@ -14,7 +14,7 @@
 		BA8031D4037590E99443F438E67D6E38 /* Pods-ConsoleLog_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F2CFF6404DA25AE5CEBA6BF16AC9DD /* Pods-ConsoleLog_Tests-dummy.m */; };
 		BADAD454347127048E79CF56D8C07E0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		C75C2709FE9E085B07CC5D7D665174AC /* ConsoleLog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25D69757E4146FC11DE30F524AD0F015 /* ConsoleLog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D7B925B9F20A560D7D4D1673E560ACFF /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A8ADC21021878FC825331628B3974 /* ReplaceMe.swift */; };
+		D7B925B9F20A560D7D4D1673E560ACFF /* ConsoleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A8ADC21021878FC825331628B3974 /* ConsoleLog.swift */; };
 		FCCBD2188735F9CAD6A90FD83F39FB02 /* Pods-ConsoleLog_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E3CE78C774D89C8121A11E94FA212183 /* Pods-ConsoleLog_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFC226217A2C7CAA609D2E4F5D947AB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -39,9 +39,9 @@
 /* Begin PBXFileReference section */
 		0130753E57DF44F6907BF55AEFB5857F /* Pods-ConsoleLog_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsoleLog_Tests-resources.sh"; sourceTree = "<group>"; };
 		0636B6DA60E2B31A47EAD72FE0B602CD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		089A8ADC21021878FC825331628B3974 /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ReplaceMe.swift; path = ConsoleLog/Classes/ReplaceMe.swift; sourceTree = "<group>"; };
+		089A8ADC21021878FC825331628B3974 /* ConsoleLog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConsoleLog.swift; path = ConsoleLog/Classes/ConsoleLog.swift; sourceTree = "<group>"; };
 		12F2CFF6404DA25AE5CEBA6BF16AC9DD /* Pods-ConsoleLog_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ConsoleLog_Tests-dummy.m"; sourceTree = "<group>"; };
-		13FA2F3DA0953D3481FAE281D3969D0F /* Pods_ConsoleLog_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ConsoleLog_Example.framework; path = "Pods-ConsoleLog_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13FA2F3DA0953D3481FAE281D3969D0F /* Pods_ConsoleLog_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConsoleLog_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14C2D2F692B5046D17EF42C1EAAAAECC /* Pods-ConsoleLog_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConsoleLog_Example-umbrella.h"; sourceTree = "<group>"; };
 		14E408A464CB811CAC0545C475791B2B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25D69757E4146FC11DE30F524AD0F015 /* ConsoleLog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ConsoleLog-umbrella.h"; sourceTree = "<group>"; };
@@ -51,11 +51,11 @@
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5D34FF9A8CCC2B1BBA4A538102616768 /* Pods-ConsoleLog_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsoleLog_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5EEF24DD42D830DD2489E531F588CA15 /* Pods-ConsoleLog_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ConsoleLog_Tests.modulemap"; sourceTree = "<group>"; };
-		629BF31E6CBF511D8180D5E2EEDF88B6 /* ConsoleLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ConsoleLog.framework; path = ConsoleLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		629BF31E6CBF511D8180D5E2EEDF88B6 /* ConsoleLog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConsoleLog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70825D3F1ED606F30C6F899EF422FAE0 /* Pods-ConsoleLog_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsoleLog_Example.release.xcconfig"; sourceTree = "<group>"; };
 		72267F8EC6A09297AA9A2C6967762F1B /* Pods-ConsoleLog_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ConsoleLog_Example.modulemap"; sourceTree = "<group>"; };
 		813463117FD6C4C66B3D4B625D1384AC /* Pods-ConsoleLog_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ConsoleLog_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9CDA8F1FC8706BE0B8AADDDFF3CC525E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D63495F11A46AE14C7B550F3A123870 /* Pods-ConsoleLog_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsoleLog_Example-frameworks.sh"; sourceTree = "<group>"; };
 		A2B8D4BB7B2F25812999E9948EA9C082 /* Pods-ConsoleLog_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConsoleLog_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -63,15 +63,15 @@
 		AEC543B0FB93583AFE65779B40A0AC17 /* Pods-ConsoleLog_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ConsoleLog_Example-resources.sh"; sourceTree = "<group>"; };
 		B43A70677CDE99E172C131951B10DC8A /* Pods-ConsoleLog_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ConsoleLog_Example-dummy.m"; sourceTree = "<group>"; };
 		B833BACA5CD146C2C71F440505FFCB4E /* ConsoleLog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ConsoleLog-dummy.m"; sourceTree = "<group>"; };
-		BA6E3ACF8B6C0948CC22B78ACF2E0A52 /* ConsoleLog.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = ConsoleLog.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BA6E3ACF8B6C0948CC22B78ACF2E0A52 /* ConsoleLog.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = ConsoleLog.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BEF83D182CC64AA08C3CABFC55152441 /* Pods-ConsoleLog_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConsoleLog_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		CEFE423239E009E86834F3CB2F1AA621 /* ConsoleLog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ConsoleLog.modulemap; sourceTree = "<group>"; };
 		E0E8BBDDA2ABC525331FE0EC08E5ED48 /* Pods-ConsoleLog_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ConsoleLog_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E3CE78C774D89C8121A11E94FA212183 /* Pods-ConsoleLog_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConsoleLog_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E91412506172191DEF254E4B2F9DD933 /* ConsoleLog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ConsoleLog-prefix.pch"; sourceTree = "<group>"; };
-		FC4B4BAB976FF31A70772802A5BAC093 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		FD3EFB1742BFA2DD2589D8A69BE445CA /* Pods_ConsoleLog_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ConsoleLog_Tests.framework; path = "Pods-ConsoleLog_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD750F4F77C79450254A23FD75894D3B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		FC4B4BAB976FF31A70772802A5BAC093 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FD3EFB1742BFA2DD2589D8A69BE445CA /* Pods_ConsoleLog_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConsoleLog_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD750F4F77C79450254A23FD75894D3B /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,7 +201,7 @@
 		EF2517B0DD44C9E71D62C76314F0657D /* ConsoleLog */ = {
 			isa = PBXGroup;
 			children = (
-				089A8ADC21021878FC825331628B3974 /* ReplaceMe.swift */,
+				089A8ADC21021878FC825331628B3974 /* ConsoleLog.swift */,
 				C2FDAE6A72308BD623AFEB6EB26CBEE5 /* Pod */,
 				B195EDE07D812D0289CF9732B2B43D61 /* Support Files */,
 			);
@@ -352,7 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85C134D01400CEE0C2B86E3EEDA4FDE7 /* ConsoleLog-dummy.m in Sources */,
-				D7B925B9F20A560D7D4D1673E560ACFF /* ReplaceMe.swift in Sources */,
+				D7B925B9F20A560D7D4D1673E560ACFF /* ConsoleLog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
