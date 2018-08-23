@@ -1,0 +1,6 @@
+framework module Pods_ConsoleLog_Example {
+  umbrella header "Pods-ConsoleLog_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

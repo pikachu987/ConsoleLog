@@ -1,0 +1,6 @@
+framework module Pods_ConsoleLog_Tests {
+  umbrella header "Pods-ConsoleLog_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

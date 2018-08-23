@@ -1,0 +1,16 @@
+PODS:
+  - ConsoleLog (0.1.0)
+
+DEPENDENCIES:
+  - ConsoleLog (from `../`)
+
+EXTERNAL SOURCES:
+  ConsoleLog:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ConsoleLog: ce8defdfd404f64af406d8a093fd0e2151d815f0
+
+PODFILE CHECKSUM: 2a194c6686ce1b368d7a7278a7d28693f7c9ecec
+
+COCOAPODS: 1.5.3

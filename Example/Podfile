@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ConsoleLog_Example' do
+  pod 'ConsoleLog', :path => '../'
+
+  target 'ConsoleLog_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
