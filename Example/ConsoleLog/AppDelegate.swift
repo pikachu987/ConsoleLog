@@ -17,8 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        ConsoleLog.shared.show()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            ConsoleLog.shared.show()
+//            let user = ["asd": "34r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f33", "dfs": "xvxvv", "ewr": "23r2r", "was": "123", "sad": "vr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33v"]
+//            let array = [user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user]
+//            ConsoleLog.shared.custom(level: ConsoleLog.Level.info, message: "후하🧐")
+//            ConsoleLog.shared.debug(array)
+//            ConsoleLog.shared.warning(user)
+//            ConsoleLog.shared.verbose([1, 4, 5, 6, 6, 345, 123, 234, 531, 3462])
+        }
         return true
     }
 

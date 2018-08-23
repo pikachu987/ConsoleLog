@@ -15,6 +15,11 @@
 		BADAD454347127048E79CF56D8C07E0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		C75C2709FE9E085B07CC5D7D665174AC /* ConsoleLog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 25D69757E4146FC11DE30F524AD0F015 /* ConsoleLog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D7B925B9F20A560D7D4D1673E560ACFF /* ConsoleLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A8ADC21021878FC825331628B3974 /* ConsoleLog.swift */; };
+		E0783179212EAFEF00AA3423 /* ConsoleLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0783175212EAFEF00AA3423 /* ConsoleLogView.swift */; };
+		E078317A212EAFEF00AA3423 /* Extensions+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0783176212EAFEF00AA3423 /* Extensions+.swift */; };
+		E078317B212EAFEF00AA3423 /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0783177212EAFEF00AA3423 /* ConsoleView.swift */; };
+		E078317C212EAFEF00AA3423 /* ConsoleFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0783178212EAFEF00AA3423 /* ConsoleFile.swift */; };
+		E078317E212ED40300AA3423 /* ConsoleVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = E078317D212ED40300AA3423 /* ConsoleVO.swift */; };
 		FCCBD2188735F9CAD6A90FD83F39FB02 /* Pods-ConsoleLog_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E3CE78C774D89C8121A11E94FA212183 /* Pods-ConsoleLog_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFC226217A2C7CAA609D2E4F5D947AB2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +71,11 @@
 		BA6E3ACF8B6C0948CC22B78ACF2E0A52 /* ConsoleLog.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = ConsoleLog.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BEF83D182CC64AA08C3CABFC55152441 /* Pods-ConsoleLog_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ConsoleLog_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		CEFE423239E009E86834F3CB2F1AA621 /* ConsoleLog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ConsoleLog.modulemap; sourceTree = "<group>"; };
+		E0783175212EAFEF00AA3423 /* ConsoleLogView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleLogView.swift; path = ConsoleLog/Classes/ConsoleLogView.swift; sourceTree = "<group>"; };
+		E0783176212EAFEF00AA3423 /* Extensions+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Extensions+.swift"; path = "ConsoleLog/Classes/Extensions+.swift"; sourceTree = "<group>"; };
+		E0783177212EAFEF00AA3423 /* ConsoleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleView.swift; path = ConsoleLog/Classes/ConsoleView.swift; sourceTree = "<group>"; };
+		E0783178212EAFEF00AA3423 /* ConsoleFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleFile.swift; path = ConsoleLog/Classes/ConsoleFile.swift; sourceTree = "<group>"; };
+		E078317D212ED40300AA3423 /* ConsoleVO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleVO.swift; path = ConsoleLog/Classes/ConsoleVO.swift; sourceTree = "<group>"; };
 		E0E8BBDDA2ABC525331FE0EC08E5ED48 /* Pods-ConsoleLog_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ConsoleLog_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E3CE78C774D89C8121A11E94FA212183 /* Pods-ConsoleLog_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ConsoleLog_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E91412506172191DEF254E4B2F9DD933 /* ConsoleLog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ConsoleLog-prefix.pch"; sourceTree = "<group>"; };
@@ -201,7 +211,12 @@
 		EF2517B0DD44C9E71D62C76314F0657D /* ConsoleLog */ = {
 			isa = PBXGroup;
 			children = (
+				E0783176212EAFEF00AA3423 /* Extensions+.swift */,
 				089A8ADC21021878FC825331628B3974 /* ConsoleLog.swift */,
+				E078317D212ED40300AA3423 /* ConsoleVO.swift */,
+				E0783178212EAFEF00AA3423 /* ConsoleFile.swift */,
+				E0783177212EAFEF00AA3423 /* ConsoleView.swift */,
+				E0783175212EAFEF00AA3423 /* ConsoleLogView.swift */,
 				C2FDAE6A72308BD623AFEB6EB26CBEE5 /* Pod */,
 				B195EDE07D812D0289CF9732B2B43D61 /* Support Files */,
 			);
@@ -351,8 +366,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0783179212EAFEF00AA3423 /* ConsoleLogView.swift in Sources */,
+				E078317E212ED40300AA3423 /* ConsoleVO.swift in Sources */,
+				E078317B212EAFEF00AA3423 /* ConsoleView.swift in Sources */,
 				85C134D01400CEE0C2B86E3EEDA4FDE7 /* ConsoleLog-dummy.m in Sources */,
+				E078317C212EAFEF00AA3423 /* ConsoleFile.swift in Sources */,
 				D7B925B9F20A560D7D4D1673E560ACFF /* ConsoleLog.swift in Sources */,
+				E078317A212EAFEF00AA3423 /* Extensions+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
