@@ -43,7 +43,7 @@ done!
 <br><br><br>
 
 write
-ㅑ```swift
+```swift
 ConsoleLog.shared.custom(level: ConsoleLog.Level, message: Any)
 ConsoleLog.shared.verbose(_ message: Any)
 ConsoleLog.shared.debug(_ message: Any)
