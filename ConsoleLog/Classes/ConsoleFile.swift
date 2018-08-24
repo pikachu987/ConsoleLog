@@ -26,6 +26,7 @@ class ConsoleFile: NSObject {
     private var baseURL: URL? {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
     }
+    
     var logFileURL: URL? {
         return self.baseURL?.appendingPathComponent("consolelog.log", isDirectory: false)
     }

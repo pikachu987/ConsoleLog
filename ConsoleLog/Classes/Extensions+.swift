@@ -85,7 +85,6 @@ extension Dictionary {
     }
 }
 
-
 extension UIColor {
     var toHexString: String {
         var r: CGFloat = 0
@@ -101,8 +100,6 @@ extension UIColor {
         )
     }
 }
-
-
 
 extension Date{
     func currentDate(_ calendar : Calendar = Calendar.current) -> (String, String, String){

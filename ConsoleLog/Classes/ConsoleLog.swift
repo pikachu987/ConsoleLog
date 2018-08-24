@@ -20,47 +20,57 @@
 
 import UIKit
 
+// MARK: LevelString
 public struct LevelString {
     var verbose = "💜 VERBOSE"
     var debug = "💚 DEBUG"
     var info = "💙 INFO"
     var warning = "💛 WARNING"
     var error = "❤️ ERROR"
+    var verboseColor = UIColor(red: 173/255, green: 58/255, blue: 243/255, alpha: 1)
+    var debugColor = UIColor(red: 64/255, green: 198/255, blue: 41/255, alpha: 1)
+    var infoColor = UIColor(red: 9/255, green: 99/255, blue: 246/255, alpha: 1)
+    var warningColor = UIColor(red: 252/255, green: 210/255, blue: 62/255, alpha: 1)
+    var errorColor = UIColor(red: 255/255, green: 55/255, blue: 43/255, alpha: 1)
 }
 
+// MARK: NavigationOptions
 public struct NavigationOptions {
     var barColor = UIColor(white: 230/255, alpha: 1)
     var barTintColor = UIColor.black
 }
 
+// MARK: WebViewOptions
 public struct WebViewOptions {
     var backgroundColor = UIColor.black
     var textColor = UIColor(red: 192/255, green: 192/255, blue: 186/255, alpha: 1)
     var fontSize: CGFloat = 10
 }
 
+// MARK: InfoOptions
 public struct InfoOptions {
     var isLanguage = true
     var isPreferredLanguages = true
     var isLocale = true
-    var isIdentifier = true
     var isVersion = true
+    var isBulid = true
+    var isUUID = true
     var addText = ""
 }
 
-public struct ConsoleLogViewTitle {
+// MARK: ConsoleLogTitle
+public struct ConsoleLogTitle {
     var todayLog = "Today Log"
     var log = "All Log"
-    var crash = "Crashlytics"
     var info = "Info"
 }
 
-
+// MARK: ConsoleOptions
 public struct ConsoleOptions {
     var levelString = LevelString()
     var naviagationOptions = NavigationOptions()
     var webViewOptions = WebViewOptions()
-    var consoleLogViewTitle = ConsoleLogViewTitle()
+    var consoleLogTitle = ConsoleLogTitle()
     var infoOptions = InfoOptions()
     var dateFormat = "yyyy-MM-dd HH:mm:ss"
     var line = "------------------------------------------------------------"
@@ -69,20 +79,36 @@ public struct ConsoleOptions {
 
 public class ConsoleLog: NSObject {
     public static let shared = ConsoleLog()
+    public var makeButtonHandler: ((UIButton, ConsoleLogType) -> Void)? = nil
     
     public var consoleOptions = ConsoleOptions()
-    public var defaultPoint = CGPoint(x: UIScreen.main.bounds.width - 44*4 - 20, y: 60)
-    
+    public var defaultPoint = CGPoint(x: UIScreen.main.bounds.width - 44*3 - 60, y: 60)
     public var logFileURL: URL? {
         return ConsoleFile.shared.logFileURL
     }
     
+    // MARK: level
     public enum Level: Int {
         case verbose = 0
         case debug = 1
         case info = 2
         case warning = 3
         case error = 4
+        
+        var color: String {
+            switch self {
+            case .verbose:
+                return "#"+ConsoleLog.shared.consoleOptions.levelString.verboseColor.toHexString
+            case .debug:
+                return "#"+ConsoleLog.shared.consoleOptions.levelString.debugColor.toHexString
+            case .info:
+                return "#"+ConsoleLog.shared.consoleOptions.levelString.infoColor.toHexString
+            case .warning:
+                return "#"+ConsoleLog.shared.consoleOptions.levelString.warningColor.toHexString
+            case .error:
+                return "#"+ConsoleLog.shared.consoleOptions.levelString.errorColor.toHexString
+            }
+        }
         
         var levelString: String {
             switch self {
@@ -98,55 +124,6 @@ public class ConsoleLog: NSObject {
                 return ConsoleLog.shared.consoleOptions.levelString.error
             }
         }
-    }
-    
-    private var queue: DispatchQueue?
-    
-    private lazy var consoleView: ConsoleView = {
-        let consoleView = ConsoleView(frame: CGRect(origin: self.defaultPoint, size: CGSize(width: 44, height: 44)))
-        consoleView.backgroundColor = UIColor.clear
-        consoleView.layer.cornerRadius = 2
-        return consoleView
-    }()
-    
-    
-    private override init() { }
-    
-    public func verbose(_ message: Any) {
-        self.custom(level: .verbose, message: message)
-    }
-    
-    public func debug(_ message: Any) {
-        self.custom(level: .debug, message: message)
-    }
-    
-    public func info(_ message: Any) {
-        self.custom(level: .info, message: message)
-    }
-    
-    public func warning(_ message: Any) {
-        self.custom(level: .warning, message: message)
-    }
-    
-    public func error(_ message: Any) {
-        self.custom(level: .error, message: message)
-    }
-    
-    public func custom(level: ConsoleLog.Level, message: Any) {
-        self.queue = DispatchQueue(label: "consolelog-queue-\(NSUUID().uuidString)", target: self.queue)
-        self.queue?.async {
-            let text = ConsoleVO(
-                message: self.replacingMessage(message),
-                logLevel: level,
-                dateFormat: self.consoleOptions.dateFormat
-            ).JSONStringify
-            ConsoleFile.shared.write(text)
-        }
-    }
-    
-    @discardableResult
-    public func remove() -> Bool {
-        return ConsoleFile.shared.delete()
     }
     
     public var readArray: [ConsoleVO] {
@@ -176,10 +153,57 @@ public class ConsoleLog: NSObject {
             .reduce("", { "\($0)\($1)\n\(self.consoleOptions.line)\n" })
     }
     
+    private var queue: DispatchQueue?
     
+    private lazy var consoleView: ConsoleView = {
+        let consoleView = ConsoleView(frame: CGRect(origin: self.defaultPoint, size: CGSize(width: 44, height: 44)))
+        consoleView.backgroundColor = UIColor.clear
+        consoleView.layer.cornerRadius = 2
+        return consoleView
+    }()
     
+    private override init() { }
     
+    // MARK: write
+    public func custom(level: ConsoleLog.Level, message: Any) {
+        self.queue = DispatchQueue(label: "consolelog-queue-\(NSUUID().uuidString)", target: self.queue)
+        self.queue?.async {
+            let text = ConsoleVO(
+                message: self.replacingMessage(message),
+                logLevel: level,
+                dateFormat: self.consoleOptions.dateFormat
+                ).JSONStringify
+            ConsoleFile.shared.write(text)
+        }
+    }
     
+    public func verbose(_ message: Any) {
+        self.custom(level: .verbose, message: message)
+    }
+    
+    public func debug(_ message: Any) {
+        self.custom(level: .debug, message: message)
+    }
+    
+    public func info(_ message: Any) {
+        self.custom(level: .info, message: message)
+    }
+    
+    public func warning(_ message: Any) {
+        self.custom(level: .warning, message: message)
+    }
+    
+    public func error(_ message: Any) {
+        self.custom(level: .error, message: message)
+    }
+    
+    // MARK: remove
+    @discardableResult
+    public func remove() -> Bool {
+        return ConsoleFile.shared.delete()
+    }
+    
+    // MARK: show
     public func show(_ point: CGPoint? = nil) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.consoleView.removeFromSuperview()
@@ -188,10 +212,25 @@ public class ConsoleLog: NSObject {
         }
     }
     
+    // MARK: hide
     public func hide() {
         self.consoleView.removeFromSuperview()
     }
+}
+
+
+extension ConsoleLog {
+    var todayReadWebView: String {
+        return self.todayReadArray
+            .map({ $0.descriptionWebView })
+            .reduce("", { "\($0)\($1)\n\(self.consoleOptions.line)\n" })
+    }
     
+    var readWebView: String {
+        return self.readArray
+            .map({ $0.descriptionWebView })
+            .reduce("", { "\($0)\($1)\n\(self.consoleOptions.line)\n" })
+    }
     
     private func replacingMessage(_ message: Any) -> String {
         let line = "    "
@@ -218,6 +257,4 @@ public class ConsoleLog: NSObject {
             return  "\(message)"
         }
     }
-    
-    
 }

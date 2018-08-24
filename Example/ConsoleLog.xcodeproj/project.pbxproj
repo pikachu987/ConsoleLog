@@ -14,6 +14,10 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		E08BCE7221304782004E1B57 /* icTerminalToday.png in Resources */ = {isa = PBXBuildFile; fileRef = E08BCE6E21304782004E1B57 /* icTerminalToday.png */; };
+		E08BCE7321304782004E1B57 /* icInfo.png in Resources */ = {isa = PBXBuildFile; fileRef = E08BCE6F21304782004E1B57 /* icInfo.png */; };
+		E08BCE7421304782004E1B57 /* icConsole.png in Resources */ = {isa = PBXBuildFile; fileRef = E08BCE7021304782004E1B57 /* icConsole.png */; };
+		E08BCE7521304782004E1B57 /* icTerminal.png in Resources */ = {isa = PBXBuildFile; fileRef = E08BCE7121304782004E1B57 /* icTerminal.png */; };
 		E5A314CE6CE94077A08EA4A8 /* Pods_ConsoleLog_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E23EFCF6417587A7046D2A /* Pods_ConsoleLog_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +50,10 @@
 		61475F45BB1A518A2D8E9E64 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		69E0486E7FF4BA4B026F9D1D /* ConsoleLog.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ConsoleLog.podspec; path = ../ConsoleLog.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A917F912E40BDF3C7720153F /* Pods_ConsoleLog_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConsoleLog_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E08BCE6E21304782004E1B57 /* icTerminalToday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icTerminalToday.png; sourceTree = "<group>"; };
+		E08BCE6F21304782004E1B57 /* icInfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icInfo.png; sourceTree = "<group>"; };
+		E08BCE7021304782004E1B57 /* icConsole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icConsole.png; sourceTree = "<group>"; };
+		E08BCE7121304782004E1B57 /* icTerminal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icTerminal.png; sourceTree = "<group>"; };
 		FF82D276B8405E152B2B8E1C /* Pods-ConsoleLog_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConsoleLog_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConsoleLog_Example/Pods-ConsoleLog_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +106,10 @@
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				E08BCE7021304782004E1B57 /* icConsole.png */,
+				E08BCE6F21304782004E1B57 /* icInfo.png */,
+				E08BCE7121304782004E1B57 /* icTerminal.png */,
+				E08BCE6E21304782004E1B57 /* icTerminalToday.png */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for ConsoleLog";
@@ -246,8 +258,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				E08BCE7521304782004E1B57 /* icTerminal.png in Resources */,
+				E08BCE7321304782004E1B57 /* icInfo.png in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				E08BCE7221304782004E1B57 /* icTerminalToday.png in Resources */,
+				E08BCE7421304782004E1B57 /* icConsole.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

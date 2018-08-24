@@ -24,8 +24,11 @@ class ConsoleView: UIView {
     private lazy var consoleButton: UIButton = {
         let button = UIButton(type: .system)
         button.clipsToBounds = true
-        button.setTitle("콘솔", for: .normal)
+        button.setTitle("Console", for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.5
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentEdgeInsets = UIEdgeInsetsMake(4, 4, 4, 4)
         self.addSubview(button)
         self.addConstraints(self.constraint(button, top: 0, left: 0))
         self.addConstraint(self.constraint(button, attribute: .bottom, priority: 500))
@@ -37,8 +40,11 @@ class ConsoleView: UIView {
     private lazy var tLogButton: UIButton = {
         let button = UIButton(type: .system)
         button.clipsToBounds = true
-        button.setTitle("t로그", for: .normal)
+        button.setTitle("TodayLog", for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.5
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentEdgeInsets = UIEdgeInsetsMake(4, 4, 4, 4)
         self.addSubview(button)
         self.addConstraint(self.consoleButton.constraint(button, attribute: .bottom, toItemAttribute: .top))
         self.addConstraints(self.constraint(button, left: 0, bottom: 0))
@@ -49,8 +55,11 @@ class ConsoleView: UIView {
     private lazy var logButton: UIButton = {
         let button = UIButton(type: .system)
         button.clipsToBounds = true
-        button.setTitle("로그", for: .normal)
+        button.setTitle("AllLog", for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.5
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentEdgeInsets = UIEdgeInsetsMake(4, 4, 4, 4)
         self.addSubview(button)
         self.addConstraint(self.consoleButton.constraint(button, attribute: .bottom, toItemAttribute: .top))
         self.addConstraint(self.tLogButton.constraint(button, attribute: .trailing, toItemAttribute: .leading))
@@ -59,27 +68,17 @@ class ConsoleView: UIView {
         return button
     }()
     
-    private lazy var crashButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.clipsToBounds = true
-        button.setTitle("크래시", for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(button)
-        self.addConstraint(self.consoleButton.constraint(button, attribute: .bottom, toItemAttribute: .top))
-        self.addConstraint(self.logButton.constraint(button, attribute: .trailing, toItemAttribute: .leading))
-        self.addConstraints(self.constraint(button, bottom: 0))
-        button.addConstraints(button.constraint(width: 44, height: 44, heightPriority: 500))
-        return button
-    }()
-    
     private lazy var infoButton: UIButton = {
         let button = UIButton(type: .system)
         button.clipsToBounds = true
-        button.setTitle("내정보", for: .normal)
+        button.setTitle("Info", for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.minimumScaleFactor = 0.5
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.contentEdgeInsets = UIEdgeInsetsMake(4, 4, 4, 4)
         self.addSubview(button)
         self.addConstraint(self.consoleButton.constraint(button, attribute: .bottom, toItemAttribute: .top))
-        self.addConstraint(self.crashButton.constraint(button, attribute: .trailing, toItemAttribute: .leading))
+        self.addConstraint(self.logButton.constraint(button, attribute: .trailing, toItemAttribute: .leading))
         self.addConstraints(self.constraint(button, bottom: 0))
         button.addConstraints(button.constraint(width: 44, height: 44, heightPriority: 500))
         return button
@@ -95,8 +94,12 @@ class ConsoleView: UIView {
         self.consoleButton.addTarget(self, action: #selector(self.consoleAction(_:)), for: .touchUpInside)
         self.tLogButton.addTarget(self, action: #selector(self.tLogAction(_:)), for: .touchUpInside)
         self.logButton.addTarget(self, action: #selector(self.logAction(_:)), for: .touchUpInside)
-        self.crashButton.addTarget(self, action: #selector(self.crashAction(_:)), for: .touchUpInside)
         self.infoButton.addTarget(self, action: #selector(self.infoAction(_:)), for: .touchUpInside)
+        
+        ConsoleLog.shared.makeButtonHandler?(self.consoleButton, .default)
+        ConsoleLog.shared.makeButtonHandler?(self.tLogButton, .todayLog)
+        ConsoleLog.shared.makeButtonHandler?(self.logButton, .log)
+        ConsoleLog.shared.makeButtonHandler?(self.infoButton, .info)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -111,7 +114,7 @@ class ConsoleView: UIView {
     @objc private func consoleAction(_ sender: UIButton) {
         if self.frame.height == 44 {
             UIView.animate(withDuration: 0.3) {
-                self.frame.size.width = 44*4
+                self.frame.size.width = 44*3
                 self.frame.size.height = 44*2
             }
         } else {
@@ -128,10 +131,6 @@ class ConsoleView: UIView {
     
     @objc private func logAction(_ sender: UIButton) {
         self.consoleLineView.show(.log, animated: true)
-    }
-    
-    @objc private func crashAction(_ sender: UIButton) {
-        self.consoleLineView.show(.crash, animated: true)
     }
     
     @objc private func infoAction(_ sender: UIButton) {

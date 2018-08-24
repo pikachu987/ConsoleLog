@@ -21,28 +21,26 @@
 import UIKit
 import WebKit
 
-class ConsoleLogView: UIView {
-    deinit {
-        print("deinit: \(self)")
-    }
-    enum ConsoleLogType {
-        case todayLog
-        case log
-        case crash
-        case info
-        var title: String {
-            switch self {
-            case .todayLog:
-                return ConsoleLog.shared.consoleOptions.consoleLogViewTitle.todayLog
-            case .log:
-                return ConsoleLog.shared.consoleOptions.consoleLogViewTitle.log
-            case .crash:
-                return ConsoleLog.shared.consoleOptions.consoleLogViewTitle.crash
-            case .info:
-                return ConsoleLog.shared.consoleOptions.consoleLogViewTitle.info
-            }
+public enum ConsoleLogType {
+    case `default`
+    case todayLog
+    case log
+    case info
+    var title: String {
+        switch self {
+        case .todayLog:
+            return ConsoleLog.shared.consoleOptions.consoleLogTitle.todayLog
+        case .log:
+            return ConsoleLog.shared.consoleOptions.consoleLogTitle.log
+        case .info:
+            return ConsoleLog.shared.consoleOptions.consoleLogTitle.info
+        case .default:
+            return ""
         }
     }
+}
+
+class ConsoleLogView: UIView {
     
     private lazy var statusView: UIView = {
         let view = UIView()
@@ -52,6 +50,7 @@ class ConsoleLogView: UIView {
         view.addConstraints(view.constraint(height: UIApplication.shared.statusBarFrame.height, heightPriority: 900))
         return view
     }()
+    
     private lazy var navigationBar: UINavigationBar = {
         let navigationController = UINavigationController()
         let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: navigationController.navigationBar.frame.height))
@@ -62,6 +61,7 @@ class ConsoleLogView: UIView {
         navigationBar.addConstraints(navigationBar.constraint(height: navigationController.navigationBar.frame.height, heightPriority: 900))
         return navigationBar
     }()
+    
     private lazy var view: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -79,8 +79,7 @@ class ConsoleLogView: UIView {
         return webView
     }()
     
-    
-    private var type = ConsoleLogView.ConsoleLogType.log
+    private var type = ConsoleLogType.log
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -112,7 +111,7 @@ class ConsoleLogView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func show(_ type: ConsoleLogView.ConsoleLogType, animated: Bool) {
+    func show(_ type: ConsoleLogType, animated: Bool) {
         self.type = type
         self.navigationBar.topItem?.title = type.title
         self.isHidden = false
@@ -132,11 +131,37 @@ class ConsoleLogView: UIView {
     
     private func readLog() -> String{
         if self.type == .log {
-            return ConsoleLog.shared.read
+            return ConsoleLog.shared.readWebView
         } else if self.type == .todayLog {
-            return ConsoleLog.shared.todayRead
-        } else if self.type == .crash {
-            
+            return ConsoleLog.shared.todayReadWebView
+        } else if self.type == .info {
+            var text = ""
+            if ConsoleLog.shared.consoleOptions.infoOptions.isLanguage {
+                let language = Locale.current.languageCode ?? ""
+                text += "language: \(language)\n"
+            }
+            if ConsoleLog.shared.consoleOptions.infoOptions.isLocale {
+                let locale = Locale.current.regionCode ?? ""
+                text += "locale: \(locale)\n"
+            }
+            if ConsoleLog.shared.consoleOptions.infoOptions.isPreferredLanguages {
+                let preferredLanguages = Locale.preferredLanguages
+                text += "preferredLanguages: \(preferredLanguages)\n"
+            }
+            if ConsoleLog.shared.consoleOptions.infoOptions.isVersion {
+                let version = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? ""
+                text += "version: \(version)\n"
+            }
+            if ConsoleLog.shared.consoleOptions.infoOptions.isBulid {
+                let bulid = (Bundle.main.infoDictionary?["CFBundleVersion"] as? String) ?? ""
+                text += "bulid: \(bulid)\n"
+            }
+            if ConsoleLog.shared.consoleOptions.infoOptions.isUUID {
+                let uuid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+                text += "uuid: \(uuid)\n"
+            }
+            text += ConsoleLog.shared.consoleOptions.infoOptions.addText
+            return text
         }
         return ""
     }
@@ -172,7 +197,6 @@ class ConsoleLogView: UIView {
             self.removeFromSuperview()
         }
     }
-    
     
     @objc private func backAction(_ sender: UIBarButtonItem) {
         self.hide(true)

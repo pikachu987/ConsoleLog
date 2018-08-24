@@ -17,15 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            ConsoleLog.shared.makeButtonHandler = { (button, type) in
+                button.setTitle("", for: .normal)
+                if type == ConsoleLogType.default {
+                    button.setImage(UIImage(named: "icConsole.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                } else if type == ConsoleLogType.todayLog {
+                    button.setImage(UIImage(named: "icTerminal.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                } else if type == ConsoleLogType.log {
+                    button.setImage(UIImage(named: "icTerminalToday.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                } else if type == ConsoleLogType.info {
+                    button.setImage(UIImage(named: "icInfo.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                }
+            }
             ConsoleLog.shared.show()
-//            let user = ["asd": "34r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f3334r3rf3f33", "dfs": "xvxvv", "ewr": "23r2r", "was": "123", "sad": "vr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33vvr33v"]
-//            let array = [user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user]
-//            ConsoleLog.shared.custom(level: ConsoleLog.Level.info, message: "후하🧐")
-//            ConsoleLog.shared.debug(array)
-//            ConsoleLog.shared.warning(user)
-//            ConsoleLog.shared.verbose([1, 4, 5, 6, 6, 345, 123, 234, 531, 3462])
+            let array = [
+                ["name": "Kim", "age": "19", "height": "185cm", "weight": "75kg", "introduce": "Good Morning"],
+                ["name": "Lee", "age": "24", "height": "175cm", "weight": "65kg", "introduce": "Hi"],
+                ["name": "Seo", "age": "23", "height": "175cm", "weight": "70kg", "introduce": "Welcome"],
+                ["name": "Choi", "age": "28", "height": "195cm", "weight": "95kg", "introduce": "Good"]]
+            ConsoleLog.shared.custom(level: ConsoleLog.Level.info, message: "Message")
+            ConsoleLog.shared.debug(array)
+            ConsoleLog.shared.verbose([1, 4, 5, 6, 6, 345, 123, 234, 531, 3462])
+            ConsoleLog.shared.error("Error Message Log")
         }
+        
+        
         return true
     }
 

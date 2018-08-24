@@ -45,6 +45,10 @@ public struct ConsoleVO {
         return text
     }
     
+    var descriptionWebView: String {
+        return "<div style='color:\(self.logLevel.color)'>\(self.description)</div>"
+    }
+    
     init(message: String, logLevel: ConsoleLog.Level, dateFormat: String) {
         self.message = message.replacingOccurrences(of: "},", with: "consolelog_replacing_1")
         self.logLevel = logLevel
