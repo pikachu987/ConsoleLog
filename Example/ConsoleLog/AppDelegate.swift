@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if type == ConsoleLogType.default {
                     button.setImage(UIImage(named: "icConsole.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
                 } else if type == ConsoleLogType.todayLog {
-                    button.setImage(UIImage(named: "icTerminal.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
-                } else if type == ConsoleLogType.log {
                     button.setImage(UIImage(named: "icTerminalToday.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
+                } else if type == ConsoleLogType.log {
+                    button.setImage(UIImage(named: "icTerminal.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
                 } else if type == ConsoleLogType.info {
                     button.setImage(UIImage(named: "icInfo.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
                 }
